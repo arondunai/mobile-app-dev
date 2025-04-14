@@ -1,8 +1,10 @@
 package com.example.verkli;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.verkli.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -20,14 +22,12 @@ public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
 
-    private Button logoutBtn;
-
     private FirebaseAuth mAuth;
+    private Button logoutBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
@@ -38,21 +38,20 @@ public class MainActivity extends AppCompatActivity {
                 R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
-        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
 
         logoutBtn = findViewById(R.id.logoutBtn);
+        mAuth = FirebaseAuth.getInstance();
 
         logoutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                logout(binding.getRoot());
+                mAuth.signOut();
+                Intent intent = new Intent(MainActivity.this, Login.class);
+                startActivity(intent);
+                finish();
+                Toast.makeText(MainActivity.this, "Logout successful!", Toast.LENGTH_SHORT).show();
             }
         });
-    }
-
-    public void logout(View view) {
-        FirebaseAuth.getInstance().signOut();
-        finish();
     }
 }
