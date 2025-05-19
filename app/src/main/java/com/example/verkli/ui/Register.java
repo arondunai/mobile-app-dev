@@ -1,4 +1,4 @@
-package com.example.verkli;
+package com.example.verkli.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -19,6 +19,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.verkli.R;
+import com.example.verkli.utils.PasswordCharSequence;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseUser;
@@ -73,6 +74,13 @@ public class Register extends AppCompatActivity {
             }
         });
 
+        confirmPassword.setTransformationMethod(new PasswordTransformationMethod() {
+            @Override
+            public CharSequence getTransformation(CharSequence charSequence, View view) {
+                return new PasswordCharSequence(charSequence);
+            }
+        });
+
         mAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
 
@@ -101,7 +109,9 @@ public class Register extends AppCompatActivity {
                         if (user == null) throw new AssertionError();
 
                         db.collection("users").document(user.getUid()).set(userData).addOnSuccessListener(
-                                aVoid -> {}
+                                aVoid -> {
+                                    Toast.makeText(Register.this, "User created!", Toast.LENGTH_SHORT).show();
+                                }
                         );
                         if (task.isSuccessful()) {
                             Toast.makeText(Register.this, "Registration successful!", Toast.LENGTH_SHORT).show();

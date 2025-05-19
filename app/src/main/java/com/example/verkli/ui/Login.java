@@ -1,4 +1,4 @@
-package com.example.verkli;
+package com.example.verkli.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -19,6 +19,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.verkli.R;
+import com.example.verkli.utils.PasswordCharSequence;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;

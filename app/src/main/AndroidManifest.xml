@@ -13,7 +13,7 @@
         android:theme="@style/Theme.verkli."
         tools:targetApi="31">
         <activity
-            android:name=".Login"
+            android:name=".ui.Login"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,12 +22,27 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Register"
+            android:name=".ui.Register"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.MainActivity"
+            android:exported="false">
+        </activity>
+        <activity
+            android:name=".ui.SearchActivity"
+            android:exported="false">
+        </activity>
+        <activity
+            android:name=".ui.ProfileActivity"
+            android:exported="false">
+        </activity>
+        <activity
+            android:name=".ui.UploadActivity"
             android:exported="false">
         </activity>
     </application>
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
 </manifest>

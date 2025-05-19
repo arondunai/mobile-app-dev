@@ -1,4 +1,4 @@
-package com.example.verkli;
+package com.example.verkli.utils;
 
 import androidx.annotation.NonNull;
 

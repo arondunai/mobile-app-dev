@@ -1,0 +1,22 @@
+Lifecycle Hook:
+- onCreate utan onStart es onResume automatikusan meghivodik
+- valszeg akkor lesznek ezek hasznosak, amikor a megszakitas nelkuli zenelejatszast akarom megvalositani
+
+
+Classokhoz otletek:
+- 'Release' interface vagy abstract class -> ebbol kulon track, single, ep, lp
+--- ez akkor eri meg ha sok kozos tulajdonsag van
+--- kozos tulajdonsagok: title, genre, artist, release date
+
+- masik opcio a jelenlegi felallas, a track kulon class, a single, ep es lp pedig enum alapjan osztalyozva mind album classbol jon letre
+egyelore ez marad!!
+- track megfelelo adatai (genre, artist, release date, stb) elerheto getterrel az albuman keresztul
+
+kell meg:
+-profilra:
+    adatvaltoztatas
+    kijelentkezes
+-opcionalis:
+    albumok
+    skip/rewind rendszer
+    overall a base is lehetne szebb
