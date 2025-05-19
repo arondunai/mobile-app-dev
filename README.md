@@ -1,3 +1,6 @@
 - a keresés érzékeny az ékezetekre, kis- és nagybetű különbségekre, szóval pontosan kell keresni
-- keresés teszteléséhez érdemes az upload funkcióval számokat feltölteni, de van benne egy-két teszt elem
+- keresés teszteléséhez érdemes az upload funkcióval "számokat" feltölteni, de van benne egy-két teszt elem
+  - Böiler: Rendőrökön bosszút állni
+  - Holi: Vittula
+  - Bloodbath: Eaten
 - nincs rendes lejátszás funkció, mert nem megvalósítható mp3-ak tárolása a sima firebase cloudban
